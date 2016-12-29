@@ -66,7 +66,7 @@ public class Movie_Add extends JDialog {
         Target.setText(outputMovies);
         Target.setEnabled(false);
 
-        Fill();
+        fill();
 
         lblEpisodes.setVisible(false);
         lblSeason.setVisible(false);
@@ -90,6 +90,7 @@ public class Movie_Add extends JDialog {
             }
         });
         btnAdd.addActionListener(new ActionListener() {
+
             @Override
             public void actionPerformed(ActionEvent e) {
                 //To change body of implemented methods use File | Settings | File Templates.
@@ -270,7 +271,6 @@ public class Movie_Add extends JDialog {
                             int lengte = Integer.parseInt(txtEpisodes.getText());
                             if(lengte%2 == 0){
                                 //Even
-
                             }
                             if(lengte%2 == 1){
                                 //Oneven
@@ -285,29 +285,23 @@ public class Movie_Add extends JDialog {
 
                                 if(i < 9){
                                     if(Integer.parseInt(txtSeason.getText()) < 10){
-                                        Path dest = Paths.get(outputSeries + "\\Series Bought" + "\\" + txtTitle.getText() + "\\Season " + txtSeason.getText() + " - " + txtYear.getText() + "\\" + txtTitle.getText() + " - s0" + txtSeason.getText() + "e0" + i + "-e0" + (i+1) + ".mp4");
-                                        destBig = dest;
+                                        destBig = Paths.get(outputSeries + "\\Series Bought" + "\\" + txtTitle.getText() + "\\Season " + txtSeason.getText() + " - " + txtYear.getText() + "\\" + txtTitle.getText() + " - s0" + txtSeason.getText() + "e0" + i + "-e0" + (i+1) + ".mp4");
                                         System.out.println("i<10 en S<10");
                                     }
                                     else{
-                                        Path dest = Paths.get(outputSeries + "\\Series Bought" + "\\" + txtTitle.getText() + "\\Season " + txtSeason.getText() + " - " + txtYear.getText() + "\\" + txtTitle.getText() + " - s" + txtSeason.getText() + "e0" + i + "-e0" + (i+1) + ".mp4");
-                                        destBig = dest;
+                                        destBig = Paths.get(outputSeries + "\\Series Bought" + "\\" + txtTitle.getText() + "\\Season " + txtSeason.getText() + " - " + txtYear.getText() + "\\" + txtTitle.getText() + " - s" + txtSeason.getText() + "e0" + i + "-e0" + (i+1) + ".mp4");
                                         System.out.println("i<10");
                                     }
                                 }
                                 if(i == 9){
-                                    Path dest = Paths.get(outputSeries + "\\Series Bought" + "\\" + txtTitle.getText() + "\\Season " + txtSeason.getText() + " - " + txtYear.getText() + "\\" + txtTitle.getText() + " - s0" + txtSeason.getText() + "e0" + i + "-e" + (i+1) + ".mp4");
-                                    destBig = dest;
+                                    destBig = Paths.get(outputSeries + "\\Series Bought" + "\\" + txtTitle.getText() + "\\Season " + txtSeason.getText() + " - " + txtYear.getText() + "\\" + txtTitle.getText() + " - s0" + txtSeason.getText() + "e0" + i + "-e" + (i+1) + ".mp4");
                                 }
-                                if(i > 10){
-                                    if(Integer.parseInt(txtSeason.getText()) < 10){
-                                        Path dest = Paths.get(outputSeries + "\\Series Bought" + "\\" + txtTitle.getText() + "\\Season " + txtSeason.getText() + " - " + txtYear.getText() + "\\" + txtTitle.getText() + " - s0" + txtSeason.getText() + "e" + i + "-e" + (i+1) + ".mp4");
-                                        destBig = dest;
+                                if(i > 10) {
+                                    if (Integer.parseInt(txtSeason.getText()) < 10) {
+                                        destBig = Paths.get(outputSeries + "\\Series Bought" + "\\" + txtTitle.getText() + "\\Season " + txtSeason.getText() + " - " + txtYear.getText() + "\\" + txtTitle.getText() + " - s0" + txtSeason.getText() + "e" + i + "-e" + (i + 1) + ".mp4");
                                         System.out.println("S<10");
-                                    }
-                                    else{
-                                        Path dest = Paths.get(outputSeries + "\\Series Bought" + "\\" + txtTitle.getText() + "\\Season " + txtSeason.getText() + " - " + txtYear.getText() + "\\" + txtTitle.getText() + " - s" + txtSeason.getText() + "e" + i + "-e" + (i+1) + ".mp4");
-                                        destBig = dest;
+                                    } else {
+                                        destBig = Paths.get(outputSeries + "\\Series Bought" + "\\" + txtTitle.getText() + "\\Season " + txtSeason.getText() + " - " + txtYear.getText() + "\\" + txtTitle.getText() + " - s" + txtSeason.getText() + "e" + i + "-e" + (i + 1) + ".mp4");
                                         System.out.println("Niets");
                                     }
                                 }
@@ -318,38 +312,31 @@ public class Movie_Add extends JDialog {
                                     j.printStackTrace();
                                 }
 
-
                             }
-                            if(oneven == true){
+                            if(oneven){
                                 // Oneven
                                 Path destBig2 = Paths.get("");
                                 lengte = lengte+1;
 
-                                if(lengte < 9){
-                                    if(Integer.parseInt(txtSeason.getText()) < 10){
-                                        Path dest = Paths.get(outputSeries + "\\Series Bought" + "\\" + txtTitle.getText() + "\\Season " + txtSeason.getText() + " - " + txtYear.getText() + "\\" + txtTitle.getText() + " - s0" + txtSeason.getText() + "e0" + lengte + ".mp4");
-                                        destBig2 = dest;
+                                if(lengte < 9) {
+                                    if (Integer.parseInt(txtSeason.getText()) < 10) {
+                                        destBig2 = Paths.get(outputSeries + "\\Series Bought" + "\\" + txtTitle.getText() + "\\Season " + txtSeason.getText() + " - " + txtYear.getText() + "\\" + txtTitle.getText() + " - s0" + txtSeason.getText() + "e0" + lengte + ".mp4");
                                         System.out.println("i<10 en S<10");
-                                    }
-                                    else{
-                                        Path dest = Paths.get(outputSeries + "\\Series Bought" + "\\" + txtTitle.getText() + "\\Season " + txtSeason.getText() + " - " + txtYear.getText() + "\\" + txtTitle.getText() + " - s" + txtSeason.getText() + "e0" + lengte + ".mp4");
-                                        destBig2 = dest;
+                                    } else {
+                                        destBig2 = Paths.get(outputSeries + "\\Series Bought" + "\\" + txtTitle.getText() + "\\Season " + txtSeason.getText() + " - " + txtYear.getText() + "\\" + txtTitle.getText() + " - s" + txtSeason.getText() + "e0" + lengte + ".mp4");
                                         System.out.println("i<10");
                                     }
                                 }
                                 if(lengte == 9){
-                                    Path dest = Paths.get(outputSeries + "\\Series Bought" + "\\" + txtTitle.getText() + "\\Season " + txtSeason.getText() + " - " + txtYear.getText() + "\\" + txtTitle.getText() + " - s0" + txtSeason.getText() + "e0" + lengte + ".mp4");
-                                    destBig2 = dest;
+                                    destBig2 = Paths.get(outputSeries + "\\Series Bought" + "\\" + txtTitle.getText() + "\\Season " + txtSeason.getText() + " - " + txtYear.getText() + "\\" + txtTitle.getText() + " - s0" + txtSeason.getText() + "e0" + lengte + ".mp4");
                                 }
                                 if(lengte > 10){
                                     if(Integer.parseInt(txtSeason.getText()) < 10){
-                                        Path dest = Paths.get(outputSeries + "\\Series Bought" + "\\" + txtTitle.getText() + "\\Season " + txtSeason.getText() + " - " + txtYear.getText() + "\\" + txtTitle.getText() + " - s0" + txtSeason.getText() + "e" + lengte + ".mp4");
-                                        destBig2 = dest;
+                                        destBig2 = Paths.get(outputSeries + "\\Series Bought" + "\\" + txtTitle.getText() + "\\Season " + txtSeason.getText() + " - " + txtYear.getText() + "\\" + txtTitle.getText() + " - s0" + txtSeason.getText() + "e" + lengte + ".mp4");
                                         System.out.println("S<10");
                                     }
                                     else{
-                                        Path dest = Paths.get(outputSeries + "\\Series Bought" + "\\" + txtTitle.getText() + "\\Season " + txtSeason.getText() + " - " + txtYear.getText() + "\\" + txtTitle.getText() + " - s" + txtSeason.getText() + "e" + lengte + ".mp4");
-                                        destBig2 = dest;
+                                        destBig2 = Paths.get(outputSeries + "\\Series Bought" + "\\" + txtTitle.getText() + "\\Season " + txtSeason.getText() + " - " + txtYear.getText() + "\\" + txtTitle.getText() + " - s" + txtSeason.getText() + "e" + lengte + ".mp4");
                                         System.out.println("Niets");
                                     }
                                 }
@@ -379,10 +366,7 @@ public class Movie_Add extends JDialog {
                         System.out.println("There is no 720p");
                     }
 
-
                 }
-
-
 
             }
 
@@ -450,7 +434,7 @@ public class Movie_Add extends JDialog {
         System.exit(0);
     }
 
-    private void Fill() {
+    private void fill() {
 
         /*txtCollection.setVisible(false);
         repaint();
